@@ -5,15 +5,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b26aa449-6c36-4b61-ac8e-49ff3b38b6a5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>oldhelp.py</StartupFile>
+    <StartupFile>app.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>BingPythonTTSandSTT</Name>
     <RootNamespace>BingPythonTTSandSTT</RootNamespace>
-    <InterpreterId>{69546e8c-419c-4823-99d7-b2859d68586a}</InterpreterId>
-    <InterpreterVersion>3.5</InterpreterVersion>
+    <InterpreterId>{5c51852d-ed6d-4d14-ba2e-cf941e5c709b}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,14 +24,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BingPythonTTSandSTT.py" />
-    <Compile Include="oldhelp.py">
+    <Compile Include="app.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BingPythonTTSandSTT.py" />
     <Compile Include="tokens.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tts_helper.py">
+    <Compile Include="tts.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -41,6 +41,12 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="requirements.txt" />
+    <Content Include="templates\index.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\my-form.html">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">
