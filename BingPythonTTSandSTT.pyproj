@@ -5,15 +5,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b26aa449-6c36-4b61-ac8e-49ff3b38b6a5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>BingPythonTTSandSTT.py</StartupFile>
+    <StartupFile>oldhelp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>BingPythonTTSandSTT</Name>
     <RootNamespace>BingPythonTTSandSTT</RootNamespace>
-    <InterpreterId>{5c51852d-ed6d-4d14-ba2e-cf941e5c709b}</InterpreterId>
-    <InterpreterVersion>2.7</InterpreterVersion>
+    <InterpreterId>{69546e8c-419c-4823-99d7-b2859d68586a}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,8 +40,20 @@
     <Content Include="README.md">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>{69546e8c-419c-4823-99d7-b2859d68586a}</Id>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
+      <Version>3.5</Version>
+      <Description>env1 (Python 3.5)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>{5c51852d-ed6d-4d14-ba2e-cf941e5c709b}</Id>
       <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
