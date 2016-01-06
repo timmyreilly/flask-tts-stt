@@ -25,6 +25,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BingPythonTTSandSTT.py" />
+    <Compile Include="oldhelp.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tokens.py">
       <SubType>Code</SubType>
     </Compile>
