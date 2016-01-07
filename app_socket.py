@@ -44,6 +44,15 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 
+@socketio.on('websocket', namespace='/test')
+def audio(message):
+    first_message = True 
+    total_msg = ""
+    sample_rate = 0
+
+    while True: 
+        msg = message.receive() 
+
 
 def background_thread():
     """Example of how to send server generated events to clients."""

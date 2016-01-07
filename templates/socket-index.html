@@ -8,27 +8,7 @@
         $(document).ready(function () {
 
 
-            function initializeRecorder(stream) {
-                audio_context = new AudioContext;
-                sampleRate = audio_context.sampleRate;
-
-                var audioInput = audio_context.createMediaStreamSource(stream);
-
-                console.log("Created media stream.");
-
-                var bufferSize = 4096;
-                // record only 1 channel 
-                var recorder = audio_context.createScriptProcessor(bufferSize, 1, 1);
-
-                //specify the processing functoin
-                recorder.onaudioprocess = recorderProcess;
-
-                // connect stream to our recorder 
-                audioInput.connect(recorder);
-
-                //connect our recorder to the previous destination
-                recorder.connect(audio_context.destination);
-            }
+            
 
             namespace = '/test'; // change to an empty string to use the global namespace
 
@@ -38,7 +18,7 @@
 
             socket.on('connect')
             
-            socket.on('connect') = function (evt) {
+            socket.on('websocket') = function (evt) {
                 console.log("connected to web socket ");
 
                 socket.send("sample rate: " + sampleRate);
@@ -93,6 +73,50 @@
     </script>
 </head>
 <body>
+    <div>
+        <h1>Here's Audio</h1>
+        <video autoplay></video>
+        <script type="text/javascript" charset="utf-8">
+            var errorCallback = function (e) {
+                console.log("REEEEJECTED", e);
+            };
+
+            navigator.getUserMedia({ video: true, audio: true }, function (localMediaStream) {
+                var video = document.querySelector('video');
+                var audio = document.querySelector('audio');
+                audio.src = window.URL.createObjectURL(localMediaStream);
+
+                video.onloadedmetadata = function (e) {
+                    function initializeRecorder(stream) {
+                        audio_context = new AudioContext;
+                        sampleRate = audio_context.sampleRate;
+
+                        var audioInput = audio_context.createMediaStreamSource(stream);
+
+                        console.log("Created media stream.");
+
+                        var bufferSize = 4096;
+                        // record only 1 channel 
+                        var recorder = audio_context.createScriptProcessor(bufferSize, 1, 1);
+
+                        //specify the processing functoin
+                        recorder.onaudioprocess = recorderProcess;
+
+                        // connect stream to our recorder 
+                        audioInput.connect(recorder);
+
+                        //connect our recorder to the previous destination
+                        recorder.connect(audio_context.destination);
+                    }
+                }
+
+            })
+        </script>
+    </div>
+
+    <div>
+        <
+    </div>
     <h1>Flask-SocketIO Test</h1>
     <h2>Send:</h2>
     <form id="emit" method="POST" action='#'>

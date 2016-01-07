@@ -53,6 +53,18 @@
     <Content Include="templates\index.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="templates\js\audiodisplay.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\js\main.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\js\recorderjs\recorder.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\mic.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\my-form.html">
       <SubType>Code</SubType>
     </Content>
@@ -87,6 +99,7 @@
   <ItemGroup>
     <Folder Include="templates\" />
     <Folder Include="templates\js\" />
+    <Folder Include="templates\js\recorderjs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

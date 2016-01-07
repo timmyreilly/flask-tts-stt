@@ -20,8 +20,8 @@ def my_form_post():
 @app.route('/mic')
 def mic():
     return render_template(
-        "audio-capture.html",
-        title = 'Mic Check'
+        "mic.html",
+        #title = 'Mic Check'
         )
 
 if __name__ == "__main__":
