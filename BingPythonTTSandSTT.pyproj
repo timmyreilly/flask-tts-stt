@@ -27,7 +27,13 @@
     <Compile Include="app.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app_socket.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BingPythonTTSandSTT.py" />
+    <Compile Include="stt.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tokens.py">
       <SubType>Code</SubType>
     </Compile>
@@ -41,10 +47,16 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="requirements.txt" />
+    <Content Include="templates\audio-capture.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\index.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\my-form.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\socket-index.html">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
@@ -74,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="templates\" />
+    <Folder Include="templates\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
