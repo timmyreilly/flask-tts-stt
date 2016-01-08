@@ -34,6 +34,7 @@ elif async_mode == 'gevent':
 
 from flask import Flask, render_template, request, send_from_directory, jsonify
 from flask_socketio import SocketIO 
+from numpy import frombuffer 
 
 app = Flask(__name__, static_path='/static')
 app.config['SECRET_KEY'] = 'secret'
@@ -42,10 +43,19 @@ thread = None
 
 from tts import get_raw_wav
 
-@socketio.on('connect', namespace='')
-def test_connect(data):
-    print data 
-    print "HELLLO SOCKET"
+@socketio.on('stream')
+def audio(stream):
+    first_message = True 
+    total_msg = ""
+    sample_rate = 0 
+    print stream
+    print type(stream) 
+    audio_as_int_array = stream 
+
+
+@socketio.on('channel')
+def channel(message):
+    print "received " , message 
 
 @app.route('/')
 def my_form():

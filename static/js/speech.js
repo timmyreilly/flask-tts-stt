@@ -2,15 +2,26 @@ var namespace = '';
 
 var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
 
+
 $('#music-button').click(function () {
+    var clientMessage = "I'm the client trying to communicate";
+
     console.log('sweeeet');
+    socket.emit("channel", clientMessage);
+    console.log("just sent: ", clientMessage);
 }); 
 
 $(document).ready(function () {
     console.log('writo');
 });
 
+socket.on('connect', function (evt) {
+    console.log("connected to websocket");
+});
+
 function initializeRecorder(stream) {
+
+    console.log("initializing");
     audio_context = new AudioContext;
     sampleRate = audio_context.sampleRate;
     var audioInput = audio_context.createMediaStreamSource(stream)
@@ -29,9 +40,9 @@ function initializeRecorder(stream) {
 }
 
 function recorderProcess(e) {
-    if (recording) {
+    if (true) {
         var left = e.inputBuffer.getChannelData(0);
-        socket.emit(convertFloat32TOInt16(left));
+        socket.emit('stream', convertFloat32ToInt16(left));
     }
 }
 
@@ -44,15 +55,10 @@ function convertFloat32ToInt16(buffer) {
     return buf.buffer 
 }
 
-socket.on('connect', function (evt) {
-    console.log('connected to websocket');
-    socket.emit('my event', { data: 'im connected' });
 
-    //navigator.getUserMedia({ audio: true, video: false }, initializeRecorder, function (e) {
-    //    console.log('No Live audio input: ' + e);
-    //})
-});
 
-$('#listen-button').click(function () {
-    navigator.getUserMedia({ audio: true }, initializeRecorder);
-});
+
+document.getElementById("listen-button").addEventListener("click", navigator.getUserMedia({audio: true, video: false}, initializeRecorder, function(e){
+    console.log("no live audio input" + e);
+}));
+
