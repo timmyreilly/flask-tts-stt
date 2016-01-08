@@ -1,7 +1,51 @@
-from flask import Flask, render_template, request
-app = Flask(__name__)
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+# different async modes, or leave it set to None for the application to choose
+# the best option based on available packages.
+async_mode = None
+
+if async_mode is None:
+    try:
+        import eventlet
+        async_mode = 'eventlet'
+    except ImportError:
+        pass
+
+    if async_mode is None:
+        try:
+            from gevent import monkey
+            async_mode = 'gevent'
+        except ImportError:
+            pass
+
+    if async_mode is None:
+        async_mode = 'threading'
+
+    print('async_mode is ' + async_mode)
+
+# monkey patching is necessary because this application uses a background
+# thread
+if async_mode == 'eventlet':
+    import eventlet
+    eventlet.monkey_patch()
+elif async_mode == 'gevent':
+    from gevent import monkey
+    monkey.patch_all()
+
+
+from flask import Flask, render_template, request, send_from_directory, jsonify
+from flask_socketio import SocketIO 
+
+app = Flask(__name__, static_path='/static')
+app.config['SECRET_KEY'] = 'secret'
+socketio = SocketIO(app, async_mode=async_mode)
+thread = None
 
 from tts import get_raw_wav
+
+@socketio.on('connect', namespace='')
+def test_connect(data):
+    print data 
+    print "HELLLO SOCKET"
 
 @app.route('/')
 def my_form():
@@ -17,13 +61,13 @@ def my_form_post():
         wavfile = wav 
         )
 
+
 @app.route('/mic')
 def mic():
     return render_template(
-        "mic.html",
-        #title = 'Mic Check'
+        "audio-capture.html",
         )
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    socketio.run(app) 
 

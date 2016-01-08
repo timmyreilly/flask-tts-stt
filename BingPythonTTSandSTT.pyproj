@@ -47,28 +47,62 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="requirements.txt" />
+    <Content Include="static\content\bootstrap.css" />
+    <Content Include="static\content\bootstrap.min.css" />
+    <Content Include="static\content\site.css" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\scripts\bootstrap.js" />
+    <Content Include="static\scripts\bootstrap.min.js" />
+    <Content Include="static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="static\scripts\jquery-1.10.2.js" />
+    <Content Include="static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="static\scripts\jquery.validate.js" />
+    <Content Include="static\scripts\jquery.validate.min.js" />
+    <Content Include="static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="static\scripts\modernizr-2.6.2.js" />
+    <Content Include="static\scripts\respond.js" />
+    <Content Include="static\scripts\respond.min.js" />
+    <Content Include="static\scripts\_references.js" />
     <Content Include="templates\audio-capture.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scraps\ind.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\index.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="templates\js\audiodisplay.js">
+    <Content Include="scraps\audiodisplay.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="templates\js\main.js">
+    <Content Include="scraps\main.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="templates\js\recorderjs\recorder.js">
+    <Content Include="scraps\recorderjs\recorder.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="templates\mic.html">
+    <Content Include="static\js\speech.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scraps\ws.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\layout.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scraps\mic.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\my-form.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="templates\socket-index.html">
+    <Content Include="scraps\socket-index.html">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
@@ -97,9 +131,14 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="scraps\" />
+    <Folder Include="static\" />
+    <Folder Include="static\content\" />
+    <Folder Include="static\fonts\" />
+    <Folder Include="static\scripts\" />
     <Folder Include="templates\" />
-    <Folder Include="templates\js\" />
-    <Folder Include="templates\js\recorderjs\" />
+    <Folder Include="static\js\" />
+    <Folder Include="scraps\recorderjs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
