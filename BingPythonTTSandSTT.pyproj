@@ -54,6 +54,15 @@
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\js\index.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="static\js\recorder.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="static\js\speechtwo.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="static\scripts\bootstrap.js" />
     <Content Include="static\scripts\bootstrap.min.js" />
     <Content Include="static\scripts\jquery-1.10.2.intellisense.js" />

@@ -3,28 +3,6 @@ var namespace = '';
 var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
 
 
-$('#music-button').click(function () {
-    var clientMessage = "I'm the client trying to communicate";
-
-    console.log('sweeeet');
-    socket.emit("channel", clientMessage);
-    console.log("just sent: ", clientMessage);
-});
-
-$('#record-button').click(function () {
-    var samplerate = "hello its me";
-    console.log("record press");
-    socket.emit("samplerate", samplerate);
-})
-
-$(document).ready(function () {
-    console.log('writo');
-});
-
-socket.on('connect', function (evt) {
-    console.log("connected to websocket");
-});
-
 function initializeRecorder(stream) {
 
     console.log("initializing");
@@ -45,29 +23,43 @@ function initializeRecorder(stream) {
     recorder.connect(audio_context.destination);
 }
 
-function recorderProcess(e) {
-    if (true) {
-        var left = e.inputBuffer.getChannelData(0);
-        console.log(left);
-        console.log(convertFloat32ToInt16(left));
-        socket.emit('stream', convertFloat32ToInt16(left));
-    }
-}
-
-
 function convertFloat32ToInt16(buffer) {
     l = buffer.length;
     buf = new Int16Array(1);
     while (l--) {
         buf[l] = Math.min(1, buffer[1]) * 0x7FFF;
     }
-    return buf.buffer 
+    return buf.buffer
+}
+
+function recorderProcess(e) {
+    if (true) {
+        var left = e.inputBuffer.getChannelData(0);
+        console.log(left);
+        console.log(convertFloat32ToInt16(left));
+        socket.emit('stream', convertFloat32ToInt16(left));
+        socket.send(convertFloat32ToInt16(left));
+    }
 }
 
 
+$('#music-button').click(function () {
+    var clientMessage = "I'm the client trying to communicate";
 
+    console.log("clicked music button");
+    socket.emit("channel", clientMessage);
+});
 
-document.getElementById("listen-button").addEventListener("click", navigator.getUserMedia({audio: true, video: false}, initializeRecorder, function(e){
-    console.log("no live audio input" + e);
-}));
+function myFunction() {
+    console.log("you clicked the button");
+}
 
+function doStuff() {
+    console.log("do stuff");
+    navigator.getUserMedia({ audio: true, video: false }, initializeRecorder, 
+        function(e){
+            console.log("no live audio input" + e);
+        })
+}
+
+document.getElementById("listen-button").addEventListener("click", doStuff);

@@ -43,14 +43,21 @@ thread = None
 
 from tts import get_raw_wav
 
+
 @socketio.on('stream')
 def audio(stream):
     first_message = True 
     total_msg = ""
     sample_rate = 0 
     print stream
-    print type(stream) 
+    print str(stream) 
     audio_as_int_array = stream 
+    print audio_as_int_array
+
+@socketio.on('samplerate')
+def start(neato):
+    sample_rate = neato
+    print sample_rate
 
 
 @socketio.on('channel')
