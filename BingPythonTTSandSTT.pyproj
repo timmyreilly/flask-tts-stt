@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b26aa449-6c36-4b61-ac8e-49ff3b38b6a5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.py</StartupFile>
+    <StartupFile>apptwo.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="apptwo.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app_socket.py">
