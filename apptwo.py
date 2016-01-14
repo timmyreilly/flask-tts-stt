@@ -67,7 +67,7 @@ def listening(ws):
         audio_as_int_array = numpy.frombuffer(msg, 'i2')
 
 
-@socketio.on('samplerate')
+@socketio.on('sample_rate')
 def start(neato):
     sample_rate = neato
     print sample_rate
